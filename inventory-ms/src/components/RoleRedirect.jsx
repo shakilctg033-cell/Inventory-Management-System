@@ -2,7 +2,7 @@ import React from "react";
 import {Navigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 
-// "/" has no page of its own, it sends the user to the right dashboard
+
 function RoleRedirect() {
   const status = useSelector((state) => state.auth.status);
   const profile = useSelector((state) => state.auth.profile);

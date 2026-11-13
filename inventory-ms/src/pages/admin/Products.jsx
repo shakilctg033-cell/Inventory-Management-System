@@ -7,7 +7,7 @@ function Products() {
   const [categories, setCategories] = useState([]);
   const [suppliers, setSuppliers] = useState([]);
   const [search, setSearch] = useState("");
-  const [modal, setModal] = useState(null); // null | "add" | a product
+  const [modal, setModal] = useState(null); 
   const [error, setError] = useState("");
 
   const loadData = () => {

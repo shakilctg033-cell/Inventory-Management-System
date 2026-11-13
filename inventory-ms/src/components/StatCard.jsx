@@ -1,6 +1,5 @@
 import React from "react";
 
-// the 4 coloured boxes on the admin dashboard
 function StatCard({title, value, color}) {
   return (
     <div className={`${color} text-white rounded-lg shadow p-6 text-center`}>

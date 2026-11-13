@@ -12,17 +12,14 @@ export class AuthService {
     this.account = new Account(this.client);
   }
 
-  // account.create does NOT log the new user in, so the admin stays logged in
   async createAccount({email, password, name}) {
     return await this.account.create(ID.unique(), email, password, name);
   }
 
   async login({email, password}) {
-    // remove an old session first, otherwise Appwrite says "session is active"
     try {
       await this.account.deleteSessions();
     } catch (error) {
-      // no old session, this is fine
     }
     return await this.account.createEmailPasswordSession(email, password);
   }
@@ -31,7 +28,6 @@ export class AuthService {
     try {
       return await this.account.get();
     } catch (error) {
-      // 401 for a guest is normal, it just means "not logged in"
       return null;
     }
   }

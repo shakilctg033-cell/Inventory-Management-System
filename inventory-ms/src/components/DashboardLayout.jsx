@@ -28,7 +28,6 @@ const employeeLinks = [
   {name: "Profile", path: "/employee-dashboard/profile", icon: FaCog},
 ];
 
-// sidebar on the left, the current page (Outlet) on the right
 function DashboardLayout() {
   const profile = useSelector((state) => state.auth.profile);
   const links = profile?.role === "admin" ? adminLinks : employeeLinks;

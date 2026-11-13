@@ -1,6 +1,5 @@
 import React from "react";
 
-// white box in the middle of a dark background (used for Add / Edit Product)
 function Modal({title, children, onClose}) {
   return (
     <div

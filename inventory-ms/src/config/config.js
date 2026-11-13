@@ -1,4 +1,3 @@
-// All Appwrite ids come from the .env file (Vite needs the VITE_ prefix)
 const config = {
   appwriteUrl: String(import.meta.env.VITE_APPWRITE_URL),
   appwriteProjectId: String(import.meta.env.VITE_APPWRITE_PROJECT_ID),

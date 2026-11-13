@@ -12,7 +12,6 @@ export class Service {
     this.databases = new Databases(this.client);
   }
 
-  // ---------- small helpers, every collection below uses them ----------
   async list(collectionId, queries = []) {
     try {
       const res = await this.databases.listDocuments(
@@ -83,7 +82,6 @@ export class Service {
     return this.remove(config.appwriteCategoriesId, id);
   }
 
-  // ---------- suppliers ----------
   getSuppliers() {
     return this.list(config.appwriteSuppliersId);
   }
@@ -96,7 +94,6 @@ export class Service {
     return this.remove(config.appwriteSuppliersId, id);
   }
 
-  // ---------- orders ----------
   getOrders() {
     return this.list(config.appwriteOrdersId, [Query.orderDesc("$createdAt")]);
   }
@@ -106,7 +103,6 @@ export class Service {
     return orders.filter((order) => order.userid === userid);
   }
 
-  // one click on "Order" = save the order + reduce the product stock by 1
   async placeOrder({product, userid, username}) {
     if (product.stock <= 0) {
       throw new Error("This product is out of stock");
@@ -125,8 +121,6 @@ export class Service {
     return order;
   }
 
-  // ---------- users (profile rows: name, email, address, role) ----------
-  // the row id is the same as the Appwrite account id, so getDocument is easy
   getProfiles() {
     return this.list(config.appwriteUsersId);
   }

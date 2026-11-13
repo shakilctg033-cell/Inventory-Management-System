@@ -2,8 +2,8 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
   status: false,
-  userData: null, // Appwrite account (has $id)
-  profile: null, // row from the users collection (name, email, address, role)
+  userData: null, 
+  profile: null,
 };
 
 const authSlice = createSlice({

@@ -4,7 +4,7 @@ import Input from "./Input";
 import Select from "./Select";
 import Button from "./Button";
 
-// used for both "Add Product" and "Edit Product" (product = undefined for add)
+
 function ProductForm({product, categories, suppliers, onSubmit, onCancel}) {
   const {register, handleSubmit} = useForm({
     defaultValues: {
@@ -21,7 +21,7 @@ function ProductForm({product, categories, suppliers, onSubmit, onCancel}) {
   const supplierOptions = suppliers.map((s) => ({value: s.$id, label: s.name}));
 
   const submit = (data) => {
-    // inputs give strings, Appwrite wants numbers for price and stock
+
     onSubmit({...data, price: Number(data.price), stock: Number(data.stock)});
   };
 

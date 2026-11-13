@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import service from "../appwrite/service";
 
-// admin sees every order, an employee sees only his own orders
 function Orders() {
   const userData = useSelector((state) => state.auth.userData);
   const profile = useSelector((state) => state.auth.profile);

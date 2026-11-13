@@ -18,7 +18,6 @@ function Dashboard() {
     return category ? category.name : "-";
   };
 
-  // ----- numbers for the 4 coloured boxes -----
   const totalStock = products.reduce((sum, p) => sum + p.stock, 0);
   const today = new Date().toDateString();
   const ordersToday = orders.filter(
@@ -26,11 +25,9 @@ function Dashboard() {
   ).length;
   const revenue = orders.reduce((sum, o) => sum + Number(o.total), 0);
 
-  // ----- lists in the 3 white cards -----
   const outOfStock = products.filter((p) => p.stock === 0);
   const lowStock = products.filter((p) => p.stock > 0 && p.stock <= 5);
 
-  // highest sale = the product with the most units sold in orders
   const sold = {};
   orders.forEach((o) => {
     sold[o.productid] = (sold[o.productid] || 0) + o.quantity;
@@ -48,9 +45,17 @@ function Dashboard() {
       <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
-        <StatCard title="Total Products" value={products.length} color="bg-blue-500" />
+        <StatCard
+          title="Total Products"
+          value={products.length}
+          color="bg-blue-500"
+        />
         <StatCard title="Total Stock" value={totalStock} color="bg-green-500" />
-        <StatCard title="Order Today" value={ordersToday} color="bg-yellow-500" />
+        <StatCard
+          title="Order Today"
+          value={ordersToday}
+          color="bg-yellow-500"
+        />
         <StatCard
           title="Revenue"
           value={`$${revenue.toFixed(2)}`}
@@ -65,7 +70,9 @@ function Dashboard() {
           {outOfStock.map((p) => (
             <p key={p.$id} className="text-gray-700">
               {p.name}{" "}
-              <span className="text-gray-400">({categoryName(p.categoryid)})</span>
+              <span className="text-gray-400">
+                ({categoryName(p.categoryid)})
+              </span>
             </p>
           ))}
         </div>
@@ -83,7 +90,8 @@ function Dashboard() {
                 {categoryName(highest.categoryid)}
               </p>
               <p>
-                <span className="font-bold">Total Units Sold:</span> {highest.units}
+                <span className="font-bold">Total Units Sold:</span>{" "}
+                {highest.units}
               </p>
             </div>
           )}
@@ -95,7 +103,9 @@ function Dashboard() {
           {lowStock.map((p) => (
             <p key={p.$id} className="text-gray-700">
               <span className="font-bold">{p.name}</span> - {p.stock} left{" "}
-              <span className="text-gray-400">({categoryName(p.categoryid)})</span>
+              <span className="text-gray-400">
+                ({categoryName(p.categoryid)})
+              </span>
             </p>
           ))}
         </div>

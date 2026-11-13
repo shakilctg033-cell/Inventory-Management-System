@@ -34,7 +34,6 @@ function Login() {
     }
   };
 
-  // already logged in? go to the dashboard
   if (status) {
     return <Navigate to="/" replace />;
   }

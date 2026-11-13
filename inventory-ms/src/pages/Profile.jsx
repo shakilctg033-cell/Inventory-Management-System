@@ -1,7 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-// read-only page, the data already sits in Redux from the login
 function Profile() {
   const profile = useSelector((state) => state.auth.profile);
 

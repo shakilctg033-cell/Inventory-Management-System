@@ -25,7 +25,6 @@ function Users() {
     loadUsers();
   }, []);
 
-  // step 1: create the login in Appwrite Auth, step 2: save name/role in the table
   const addUser = async (data) => {
     setError("");
     try {
@@ -49,7 +48,6 @@ function Users() {
     }
   };
 
-  // this removes the profile row, so the person can no longer enter the app
   const deleteUser = async (user) => {
     if (!window.confirm(`Delete "${user.name}"?`)) return;
     await service.deleteProfile(user.$id);

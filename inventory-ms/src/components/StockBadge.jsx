@@ -1,6 +1,5 @@
 import React from "react";
 
-// round number: red = 0, yellow = 5 or less, green = enough stock
 function StockBadge({stock}) {
   let color = "bg-green-100 text-green-700";
 

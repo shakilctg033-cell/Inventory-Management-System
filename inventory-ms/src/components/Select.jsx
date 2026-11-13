@@ -1,6 +1,5 @@
 import React, {useId} from "react";
 
-// options = [{value: "id1", label: "Tech"}, {value: "id2", label: "Fashion"}]
 const Select = React.forwardRef(function Select(
   {options = [], label, placeholder, className = "", ...props},
   ref,
